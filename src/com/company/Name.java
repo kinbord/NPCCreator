@@ -2,6 +2,18 @@ package com.company;
 
 import java.util.Random;
 
+/**
+ * Class for the making of the name of a NPC
+ *
+ * String firstName: The first name of the NPC
+ * String middleName: The middle name of the NPC
+ * String lastName: The last name of the NPC
+ * WeightedCollection nameWeight: The weighted collection for the length of the names
+ *
+ * Random rand: A random variable to randomize the name's length and the name's structure
+ * String[] vowels: The array with all the vowels available
+ * String[] consonants: The array with the available consonants
+ */
 public class Name {
 
     private String firstName;
@@ -13,6 +25,12 @@ public class Name {
     private static String[] vowels = {"a", "e", "i", "o", "u", "y", "å", "ø", "æ"};
     private static String[] consonants = {"b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "z"};
 
+    /**
+     * Constructor of the class
+     * Create a first name, a middle name and a last name
+     *
+     * @param nameWeight: the weighted collection corresponding to the race of the NPC and helping with the name's length
+     */
     public Name (WeightedCollection nameWeight) {
         this.nameWeight = nameWeight;
         firstName = generateName();
@@ -20,28 +38,18 @@ public class Name {
         //lastName = generateName();
     }
 
+    /**
+     * A method to generate a new name
+     * Create a name with one vowel every two consonants
+     *
+     * @return newName: The name generated
+     */
     private String generateName() {
 
         String newName ="";
 
         int type = rand.nextInt(3);
-        int selectNameLength = rand.nextInt(101);
-        int nameLength = 0;
-
-        if (selectNameLength <= nameWeight.getWeights().get(0)) {
-            nameLength = Integer.parseInt(nameWeight.getContent().get(0));
-        }
-
-        for(int i = 1 ; i < nameWeight.getContent().size() ; i++) {
-            if (nameWeight.getWeights().get(i) >= selectNameLength && nameWeight.getWeights().get(i - 1) < selectNameLength) {
-                nameLength = Integer.parseInt(nameWeight.getContent().get(i));
-            }
-        }
-
-        if (nameLength == 0) {
-            System.out.println(selectNameLength);
-
-        }
+        int nameLength = generateNamesLength();
 
         for (int i = 0 ; i < nameLength ; i++) {
             if (i % 3 == type) {
@@ -62,14 +70,41 @@ public class Name {
         return newName;
     }
 
+    /**
+     * Method to generate the length of the name based on the weighted collection from the race of the NPC
+     *
+     * @return nameLength: The length of the name
+     */
+    private int generateNamesLength () {
+
+        int nameLength = Integer.parseInt(nameWeight.getRandomContent());
+
+        return nameLength;
+    }
+
+    /**
+     * Getter for firstName
+     *
+     * @return firstName: The first name of the NPC
+     */
     public String getFirstName() {
         return firstName;
     }
 
+    /**
+     * Getter for middleName
+     *
+     * @return middleName: The middle name of the NPC
+     */
     public String getMiddleName() {
         return middleName;
     }
 
+    /**
+     * Getter for lastName
+     *
+     * @return lastName: The last name of the NPC
+     */
     public String getLastName() {
         return lastName;
     }

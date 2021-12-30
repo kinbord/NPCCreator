@@ -26,7 +26,7 @@ public class Character {
      * Generates a random race, name, gender, age and occupation
      */
     public Character () {
-        this.race = new Race();
+        this.race = collections.getRace();
         this.name = new Name(this.race.getNameWeight());
         this.gender = collections.getGender();
         this.age = collections.getAge();

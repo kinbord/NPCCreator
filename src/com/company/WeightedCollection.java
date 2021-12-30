@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Class representing a weighted collection
@@ -10,11 +11,15 @@ import java.util.ArrayList;
  *
  * ArrayList<Integer> weights: An ArrayList of integer values being the weights of the items in the collection
  * ArrayList<String> content: An ArrayList of String values being the items in the collection
+ *
+ * Random rand: A random variable to get something from the collection
  */
 public class WeightedCollection {
 
     private ArrayList<Integer> weights = new ArrayList<Integer>();
     private ArrayList<String> content = new ArrayList<String>();
+
+    Random rand = new Random();
 
     /**
      * Constructor of the weighted collection
@@ -73,6 +78,29 @@ public class WeightedCollection {
         else {
             return false;
         }
+    }
+
+    /**
+     * A method to get randomly some content from the collection
+     *
+     * @return randomContent: a randomly chosen content from the collection
+     */
+    public String getRandomContent() {
+
+        int selectContent = rand.nextInt(101);
+
+        String randomContent = "";
+
+        if (selectContent <= weights.get(0)) {
+            randomContent = content.get(0);
+        }
+        for(int i = 1 ; i < content.size() ; i++) {
+            if (weights.get(i) >= selectContent && weights.get(i - 1) < selectContent) {
+                randomContent = content.get(i);
+            }
+        }
+
+        return randomContent;
     }
 
     /**

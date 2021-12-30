@@ -5,6 +5,7 @@ import java.awt.event.*;
 
 public class Main {
 
+    //Different tests such as the amount of names of different lengths
     public static void main(String[] args) {
 
         double trois = 0;
@@ -43,6 +44,7 @@ public class Main {
         GUI();
     }
 
+    //GUI
     public static void GUI() {
         JFrame frame = new JFrame("NPC Creator");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

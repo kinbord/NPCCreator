@@ -18,7 +18,7 @@ public class Collections {
     private static String[] gender = {"Male", "Female", "Non-binary"};
     private static String[] age = {"child", "teenager", "adult", "middle-aged", "elderly"};
     private static String[] occupation = {"Apothecary", "Armorer", "Alchemist", "Apprentice", "Baker", "Bandit", "Beggar", "Blacksmith", "Brewer", "Busker", "Butcher", "Camp follower", "Carpenter", "Carter", "Cheesemaker", "Cook", "Cordwainer", "Costermonger", "Court jester", "Diplomat", "Falconer", "Farmer", "Fishmonger", "Furrier", "Fletcher", "Gardener", "Gravedigger", "Grocer", "Groom", "Innkeeper", "Jeweler", "Locksmith", "Mason", "Merchant", "Miller", "Minstrel", "Outlaw", "Page", "Poison tester", "Peasant", "Pig farmer", "Painter", "Ropemaker", "Sailor", "Scribe", "Servant", "Shepherd", "Silversmith", "Skinner", "Soldier", "Spy", "Squire", "Storyteller", "Summoner", "Tailor", "Tanner", "Tax collector", "Trader", "Guard", "Winemaker"};
-    private static ArrayList<Race> race = new ArrayList<Race>();
+    private static WeightedCollection race;
 
     private static Random rand = new Random();
 
@@ -26,33 +26,41 @@ public class Collections {
      * Constructor of the class
      */
     public Collections() {
-        makeRaces();
+        this.race = makeRaces();
     }
 
     /**
      * Making of all the races available
      */
-    private static void makeRaces() {
+    private static WeightedCollection makeRaces() {
+
+        ArrayList<Race> raceContent = new ArrayList<Race>();
+        ArrayList<Integer> raceWeights = new ArrayList<Integer>();
 
         //Orc
         String raceName = "orc";
-        ArrayList<String> content = new ArrayList<String>();
+        ArrayList<Integer> content = new ArrayList<Integer>();
         ArrayList<Integer> weights = new ArrayList<Integer>();
-        content.add("3");content.add("4");content.add("5");content.add("6");
+        content.add(3);content.add(4);content.add(5);content.add(6);
         weights.add(30);weights.add(35);weights.add(25);weights.add(10);
-        WeightedCollection nameWeight = new WeightedCollection(weights, content);
+        WeightedCollection nameWeight = new WeightedCollection(content, weights);
         Race orc = new Race(raceName, nameWeight);
-        race.add(orc);
+        raceContent.add(orc);
+        raceWeights.add(50);
 
         //Elv
         raceName = "elv";
-        content = new ArrayList<String>();
+        content = new ArrayList<Integer>();
         weights = new ArrayList<Integer>();
-        content.add("5");content.add("6");content.add("7");content.add("8");content.add("9");content.add("10");
+        content.add(5);content.add(6);content.add(7);content.add(8);content.add(9);content.add(10);
         weights.add(10);weights.add(25);weights.add(25);weights.add(20);weights.add(10);weights.add(10);
-        nameWeight = new WeightedCollection(weights, content);
+        nameWeight = new WeightedCollection(content, weights);
         Race elv = new Race(raceName, nameWeight);
-        race.add(elv);
+        raceContent.add(elv);
+        raceWeights.add(50);
+
+        return race = new WeightedCollection(raceContent, raceWeights);
+
     }
 
     /**
@@ -60,7 +68,7 @@ public class Collections {
      * @return a random race chosen among the collection of the races
      */
     public Race getRace() {
-        return race.get(rand.nextInt(race.size()));
+        return (Race) race.getRandomContent();
     }
 
     /**

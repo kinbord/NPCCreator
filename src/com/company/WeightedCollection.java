@@ -17,17 +17,17 @@ import java.util.Random;
 public class WeightedCollection {
 
     private ArrayList<Integer> weights = new ArrayList<Integer>();
-    private ArrayList<String> content = new ArrayList<String>();
+    private ArrayList content = new ArrayList();
 
     Random rand = new Random();
 
     /**
      * Constructor of the weighted collection
      *
-     * @param weights: the weights of the items
      * @param content: the items
+     * @param weights: the weights of the items
      */
-    public WeightedCollection(ArrayList<Integer> weights, ArrayList<String> content) {
+    public WeightedCollection(ArrayList content, ArrayList<Integer> weights) {
 
         if (checkWeights(weights)) {
             this.weights = makeWeights(weights);
@@ -85,11 +85,11 @@ public class WeightedCollection {
      *
      * @return randomContent: a randomly chosen content from the collection
      */
-    public String getRandomContent() {
+    public Object getRandomContent() {
 
-        int selectContent = rand.nextInt(101);
+        int selectContent = rand.nextInt(100) + 1;
 
-        String randomContent = "";
+        var randomContent = content.get(0);
 
         if (selectContent <= weights.get(0)) {
             randomContent = content.get(0);
@@ -117,7 +117,7 @@ public class WeightedCollection {
      *
      * @return ArrayList<String> content: The items written as Strings
      */
-    public ArrayList<String> getContent() {
+    public ArrayList getContent() {
         return content;
     }
 }

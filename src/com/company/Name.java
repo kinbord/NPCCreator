@@ -77,7 +77,7 @@ public class Name {
      */
     private int generateNamesLength () {
 
-        int nameLength = Integer.parseInt(nameWeight.getRandomContent());
+        int nameLength = (Integer) nameWeight.getRandomContent();
 
         return nameLength;
     }

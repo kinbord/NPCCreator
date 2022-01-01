@@ -8,6 +8,8 @@ package com.company;
  * String age: The age of the NPC
  * String gender: The gender of the NPC
  * String occupation: The occupation of the NPC, what they do or did for a living
+ * String appearance: The appearance of a NPC, something striking about its appearance
+ * String alignment: The alignment of the NPC
  *
  * Collections collections: A set of collections used to randomly get the variables above
  */
@@ -18,6 +20,8 @@ public class Character {
     private String age;
     private String gender;
     private String occupation;
+    private String appearance;
+    private String alignment;
 
     static private Collections collections = new Collections();
 
@@ -31,6 +35,8 @@ public class Character {
         this.gender = collections.getGender();
         this.age = collections.getAge();
         this.occupation = collections.getOccupation();
+        this.appearance = collections.getAppearance();
+        this.alignment = collections.getAlignment();
     }
 
     /**
@@ -76,5 +82,23 @@ public class Character {
      */
     public String getOccupation() {
         return occupation;
+    }
+
+    /**
+     * Getter for appearance
+     *
+     * @return appearance
+     */
+    public String getAppearance() {
+        return appearance;
+    }
+
+    /**
+     * Getter for alignment
+     *
+     * @return alignment
+     */
+    public String getAlignment() {
+        return alignment;
     }
 }

@@ -57,20 +57,25 @@ public class Main {
         JTextField raceGenderAge = new JTextField();
         raceGenderAge.setEditable(false);
         raceGenderAge.setBounds(175, 260, 150, 30);
-        JTextField occupation = new JTextField();
-        occupation.setEditable(false);
-        occupation.setBounds(175, 300, 150, 30);
+        JTextField occupationAlignment = new JTextField();
+        occupationAlignment.setEditable(false);
+        occupationAlignment.setBounds(175, 300, 150, 30);
+        JTextField appearance = new JTextField();
+        appearance.setEditable(false);
+        appearance.setBounds(175, 340, 150, 30);
 
         buttonCreateNPC.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 Character NPC = new Character();
-                nameOfNPC.setText("Name: " + NPC.getName().getFirstName());
+                nameOfNPC.setText(NPC.getName().getFirstName());
                 raceGenderAge.setText(NPC.getGender() + " " + NPC.getAge() + " " + NPC.getRace().getRaceName());
-                occupation.setText(NPC.getOccupation());
+                occupationAlignment.setText(NPC.getAlignment() + " " + NPC.getOccupation());
+                appearance.setText(NPC.getAppearance());
             }
         });
 
-        frame.add(occupation);
+        frame.add(appearance);
+        frame.add(occupationAlignment);
         frame.add(raceGenderAge);
         frame.add(buttonCreateNPC);
         frame.add(nameOfNPC);

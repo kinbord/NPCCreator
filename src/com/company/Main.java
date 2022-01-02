@@ -1,8 +1,5 @@
 package com.company;
 
-import javax.swing.*;
-import java.awt.event.*;
-
 public class Main {
 
     //Different tests such as the amount of names of different lengths
@@ -18,8 +15,6 @@ public class Main {
         double dix = 0;
 
         //Character test = new Character();
-
-
 
         for (int i = 0 ; i <= 10000 ; i++) {
             Character test = new Character();
@@ -41,45 +36,6 @@ public class Main {
         System.out.println("Names of nine characters: " + neuf + " ; " + neuf/100 + "% of the pop.");
         System.out.println("Names of ten characters: " + dix + " ; " + dix/100 + "% of the pop.");
 
-        GUI();
-    }
-
-    //GUI
-    public static void GUI() {
-        JFrame frame = new JFrame("NPC Creator");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500,500);
-        JButton buttonCreateNPC = new JButton("Create NPC");
-        buttonCreateNPC.setBounds(175, 120, 150, 60);
-        JTextField nameOfNPC = new JTextField();
-        nameOfNPC.setEditable(false);
-        nameOfNPC.setBounds(175, 220, 150, 30);
-        JTextField raceGenderAge = new JTextField();
-        raceGenderAge.setEditable(false);
-        raceGenderAge.setBounds(175, 260, 150, 30);
-        JTextField occupationAlignment = new JTextField();
-        occupationAlignment.setEditable(false);
-        occupationAlignment.setBounds(175, 300, 150, 30);
-        JTextField appearance = new JTextField();
-        appearance.setEditable(false);
-        appearance.setBounds(175, 340, 150, 30);
-
-        buttonCreateNPC.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                Character NPC = new Character();
-                nameOfNPC.setText(NPC.getName().getFirstName());
-                raceGenderAge.setText(NPC.getGender() + " " + NPC.getAge() + " " + NPC.getRace().getRaceName());
-                occupationAlignment.setText(NPC.getAlignment() + " " + NPC.getOccupation());
-                appearance.setText(NPC.getAppearance());
-            }
-        });
-
-        frame.add(appearance);
-        frame.add(occupationAlignment);
-        frame.add(raceGenderAge);
-        frame.add(buttonCreateNPC);
-        frame.add(nameOfNPC);
-        frame.setLayout(null);
-        frame.setVisible(true);
+        GUI gui = new GUI();
     }
 }

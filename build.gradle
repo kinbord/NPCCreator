@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group 'FrenchInNorway'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+    }
+}
+dependencies {
+    implementation 'com.formdev:flatlaf:2.0-rc1'
+    implementation 'com.formdev:flatlaf-intellij-themes:2.0-rc1'
+}

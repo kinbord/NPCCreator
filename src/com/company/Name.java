@@ -22,7 +22,7 @@ public class Name {
     private WeightedCollection nameWeight;
 
     private static Random rand = new Random();
-    private static String[] vowels = {"a", "e", "i", "o", "u", "y", "å", "ø", "æ"};
+    private static String[] vowels = {"a", "e", "i", "o", "u", "y"};
     private static String[] consonants = {"b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "z"};
 
     /**

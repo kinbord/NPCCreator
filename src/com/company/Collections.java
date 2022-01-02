@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Random;
 
 /**
@@ -16,7 +17,7 @@ import java.util.Random;
 public class Collections {
 
     private static String[] gender = {"Male", "Female", "Non-binary"};
-    private static String[] age = {"child", "teenager", "adult", "middle-aged", "elderly"};
+    private static String[] age = {"Child", "Teenager", "Adult", "Middle-aged", "Elderly"};
     private static String[] occupation = {"Apothecary", "Armorer", "Alchemist", "Apprentice", "Baker", "Bandit", "Beggar", "Blacksmith", "Brewer", "Busker", "Butcher", "Camp follower", "Carpenter", "Carter", "Cheesemaker", "Cook", "Cordwainer", "Costermonger", "Court jester", "Diplomat", "Falconer", "Farmer", "Fishmonger", "Furrier", "Fletcher", "Gardener", "Gravedigger", "Grocer", "Groom", "Innkeeper", "Jeweler", "Locksmith", "Mason", "Merchant", "Miller", "Minstrel", "Outlaw", "Page", "Poison tester", "Peasant", "Pig farmer", "Painter", "Ropemaker", "Sailor", "Scribe", "Servant", "Shepherd", "Silversmith", "Skinner", "Soldier", "Spy", "Squire", "Storyteller", "Summoner", "Tailor", "Tanner", "Tax collector", "Trader", "Guard", "Winemaker"};
     private static String[] appearance = {"Earrings", "Necklace", "Circlet", "Bracelet", "Piercings", "Outlandish clothes", "Flamboyant clothes", "Formal clothes", "Ragged clothes", "Scar", "Missing teeth", "Missing finger", "Unusual eye color", "Tattoos", "Birthmark", "Unusual skin color", "Bald", "Braided hair", "Unusual hair color", "Beautiful", "Ugly", "Crooked", "Rigid", "Distinctive Nose"};
     private static String[] alignment = {"Lawful good", "Neutral good", "Chaotic good", "Lawful neutral", "True neutral", "Chaotic neutral", "Lawful evil", "Neutral evil", "Chaotic evil", "Unaligned"};
@@ -118,7 +119,7 @@ public class Collections {
      * @return a random age chosen in the age array
      */
     public String getAge() {
-        return age[rand.nextInt(age.length)];
+        return age[rand.nextInt(age.length)].toLowerCase();
     }
 
     /**
@@ -136,6 +137,6 @@ public class Collections {
      * @return a random occupation chosen in the occupation array
      */
     public String getOccupation() {
-        return occupation[rand.nextInt(occupation.length)];
+        return occupation[rand.nextInt(occupation.length)].toLowerCase();
     }
 }

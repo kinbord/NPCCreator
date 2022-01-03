@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="NPCCreator5e:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/NPCCreator5e_jar</output-path>
-    <root id="archive" name="NPCCreator5e.jar">
-      <element id="module-output" name="NPCCreator" />
-    </root>
-  </artifact>
-</component>

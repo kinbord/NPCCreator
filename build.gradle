@@ -19,3 +19,15 @@ dependencies {
     implementation 'com.formdev:flatlaf:2.0-rc1'
     implementation 'com.formdev:flatlaf-intellij-themes:2.0-rc1'
 }
+
+jar {
+    manifest {
+        attributes "Main-Class": "com.company.Main"
+    }
+
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}

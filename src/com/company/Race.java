@@ -15,18 +15,17 @@ public class Race {
 
     private String raceName;
     private WeightedCollection nameWeight;
-
-    private static Random rand = new Random();
-
+    private int nameCount;
     /**
      * Constructor for the class
      * @param raceName: The name of the race
      * @param nameWeight: The weighted collection for the length of the name
      */
-    public Race(String raceName, WeightedCollection nameWeight) {
+    public Race(String raceName, WeightedCollection nameWeight, int nameCount) {
 
         this.raceName = raceName;
         this.nameWeight = nameWeight;
+        this.nameCount = nameCount;
     }
 
     /**
@@ -45,5 +44,9 @@ public class Race {
      */
     public String getRaceName() {
         return raceName;
+    }
+
+    public int getNameCount() {
+        return nameCount;
     }
 }

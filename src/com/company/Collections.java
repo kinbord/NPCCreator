@@ -46,7 +46,7 @@ public class Collections {
         content.add(3);content.add(4);content.add(5);content.add(6);content.add(7);content.add(8);content.add(9);
         weights.add(5);weights.add(10);weights.add(15);weights.add(20);weights.add(25);weights.add(20);weights.add(5);
         WeightedCollection nameWeight = new WeightedCollection(content, weights);
-        Race human = new Race(raceName, nameWeight);
+        Race human = new Race(raceName, nameWeight, 2);
         raceContent.add(human);
         raceWeights.add(25);
 
@@ -57,7 +57,7 @@ public class Collections {
         content.add(3);content.add(4);content.add(5);content.add(6);
         weights.add(30);weights.add(35);weights.add(25);weights.add(10);
         nameWeight = new WeightedCollection(content, weights);
-        Race orc = new Race(raceName, nameWeight);
+        Race orc = new Race(raceName, nameWeight, 1);
         raceContent.add(orc);
         raceWeights.add(10);
 
@@ -68,7 +68,7 @@ public class Collections {
         content.add(5);content.add(6);content.add(7);content.add(8);content.add(9);content.add(10);
         weights.add(10);weights.add(25);weights.add(25);weights.add(20);weights.add(10);weights.add(10);
         nameWeight = new WeightedCollection(content, weights);
-        Race elv = new Race(raceName, nameWeight);
+        Race elv = new Race(raceName, nameWeight, 3);
         raceContent.add(elv);
         raceWeights.add(10);
 
@@ -79,7 +79,7 @@ public class Collections {
         content.add(5);content.add(6);content.add(7);content.add(8);content.add(9);content.add(10);
         weights.add(5);weights.add(10);weights.add(15);weights.add(25);weights.add(25);weights.add(20);
         nameWeight = new WeightedCollection(content, weights);
-        Race dwarf = new Race(raceName, nameWeight);
+        Race dwarf = new Race(raceName, nameWeight, 3);
         raceContent.add(dwarf);
         raceWeights.add(10);
 
@@ -90,7 +90,7 @@ public class Collections {
         content.add(5);content.add(6);content.add(7);content.add(8);
         weights.add(30);weights.add(50);weights.add(15);weights.add(5);
         nameWeight = new WeightedCollection(content, weights);
-        Race halfling = new Race(raceName, nameWeight);
+        Race halfling = new Race(raceName, nameWeight, 2);
         raceContent.add(halfling);
         raceWeights.add(5);
 
@@ -101,7 +101,7 @@ public class Collections {
         content.add(5);content.add(6);content.add(7);content.add(8);content.add(9);
         weights.add(20);weights.add(25);weights.add(30);weights.add(20);weights.add(5);
         nameWeight = new WeightedCollection(content, weights);
-        Race tiefling = new Race(raceName, nameWeight);
+        Race tiefling = new Race(raceName, nameWeight, 1);
         raceContent.add(tiefling);
         raceWeights.add(5);
 
@@ -112,7 +112,7 @@ public class Collections {
         content.add(5);content.add(6);content.add(7);content.add(8);
         weights.add(40);weights.add(45);weights.add(10);weights.add(5);
         nameWeight = new WeightedCollection(content, weights);
-        Race gnome = new Race(raceName, nameWeight);
+        Race gnome = new Race(raceName, nameWeight, 2);
         raceContent.add(gnome);
         raceWeights.add(10);
 
@@ -123,7 +123,7 @@ public class Collections {
         content.add(5);content.add(6);content.add(7);content.add(8);content.add(9);content.add(10);
         weights.add(5);weights.add(10);weights.add(25);weights.add(30);weights.add(25);weights.add(5);
         nameWeight = new WeightedCollection(content, weights);
-        Race halfelf = new Race(raceName, nameWeight);
+        Race halfelf = new Race(raceName, nameWeight, 3);
         raceContent.add(halfelf);
         raceWeights.add(5);
 
@@ -134,7 +134,7 @@ public class Collections {
         content.add(3);content.add(4);content.add(5);content.add(6);content.add(7);
         weights.add(5);weights.add(25);weights.add(40);weights.add(25);weights.add(5);
         nameWeight = new WeightedCollection(content, weights);
-        Race halforc = new Race(raceName, nameWeight);
+        Race halforc = new Race(raceName, nameWeight, 2);
         raceContent.add(halforc);
         raceWeights.add(5);
 
@@ -145,7 +145,7 @@ public class Collections {
         content.add(3);content.add(4);content.add(5);content.add(6);
         weights.add(10);weights.add(35);weights.add(35);weights.add(20);
         nameWeight = new WeightedCollection(content, weights);
-        Race goblin = new Race(raceName, nameWeight);
+        Race goblin = new Race(raceName, nameWeight, 1);
         raceContent.add(goblin);
         raceWeights.add(10);
 
@@ -156,7 +156,7 @@ public class Collections {
         content.add(6);content.add(7);content.add(8);content.add(9);content.add(10);content.add(11);content.add(12);content.add(13);content.add(14);
         weights.add(5);weights.add(10);weights.add(15);weights.add(10);weights.add(20);weights.add(15);weights.add(15);weights.add(5);weights.add(5);
         nameWeight = new WeightedCollection(content, weights);
-        Race dragonborn = new Race(raceName, nameWeight);
+        Race dragonborn = new Race(raceName, nameWeight, 3);
         raceContent.add(dragonborn);
         raceWeights.add(5);
 

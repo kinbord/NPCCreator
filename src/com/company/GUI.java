@@ -17,58 +17,43 @@ public class GUI {
      */
     public GUI() {
 
-        FlatDarculaLaf.setup();
+        setup();
 
-        JFrame frame = new JFrame("NPC Creator");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(530,500);
+        JFrame frame = makeFrame();
 
-        JLabel title = new JLabel("NPC Creator");
-        title.setBounds(185, 40, 200, 60);
-        title.setFont(new Font(title.getFont().getName(), Font.BOLD, 30));
+        JLabel title = makeLabel("NPC Creator", new Rectangle(300, 40, 200, 60), true);
+
+        JTextField nameOfNPC = makeTextField(new Rectangle(325, 220, 300, 30), false);
+        JLabel nameLabel = makeLabel("Name:", new Rectangle(nameOfNPC.getX()-300, nameOfNPC.getY(), 300, 30), false);
+
+        JTextField raceGenderAge = makeTextField(new Rectangle(325, 260, 300, 30), false);
+        JLabel raceGenderAgeLabel = makeLabel("Gender and age:", new Rectangle(raceGenderAge.getX()-300, raceGenderAge.getY(), 300, 30), false);
+
+        JTextField occupationAlignment = makeTextField(new Rectangle(325, 300, 300, 30), false);
+        JLabel occupationAlignmentLabel = makeLabel("Occupation and alignment:", new Rectangle(occupationAlignment.getX()-300, occupationAlignment.getY(), 300, 30), false);
+
+        JTextField appearance = makeTextField(new Rectangle(325, 340, 300, 30), false);
+        JLabel appearanceLabel = makeLabel("Appearance:", new Rectangle(appearance.getX()-300, appearance.getY(), 300, 30), false);
 
         JButton buttonCreateNPC = new JButton("Create NPC");
         buttonCreateNPC.putClientProperty("JButton.buttonType", "roundRect");
-        buttonCreateNPC.setBounds(175, 120, 200, 60);
+        buttonCreateNPC.setBounds(300, 120, 200, 60);
         frame.getRootPane().setDefaultButton(buttonCreateNPC);
 
-        JLabel nameLabel = new JLabel();
-        nameLabel.setText("Name:");
-        nameLabel.setBounds(138, 220, 60, 30);
-        JTextField nameOfNPC = new JTextField();
-        nameOfNPC.setEditable(false);
-        nameOfNPC.setBounds(175, 220, 200, 30);
-
-        JLabel raceGenderAgeLabel = new JLabel();
-        raceGenderAgeLabel.setText("Gender and age:");
-        raceGenderAgeLabel.setBounds(85, 260, 100, 30);
-        JTextField raceGenderAge = new JTextField();
-        raceGenderAge.setEditable(false);
-        raceGenderAge.setBounds(175, 260, 200, 30);
-
-        JLabel occupationAlignmentLabel = new JLabel();
-        occupationAlignmentLabel.setText("Occupation and alignment:");
-        occupationAlignmentLabel.setBounds(30, 300, 150, 30);
-        JTextField occupationAlignment = new JTextField();
-        occupationAlignment.setEditable(false);
-        occupationAlignment.setBounds(175, 300, 200, 30);
-
-        JLabel appearanceLabel = new JLabel();
-        appearanceLabel.setText("Appearance:");
-        appearanceLabel.setBounds(105, 340, 100, 30);
-        JTextField appearance = new JTextField();
-        appearance.setEditable(false);
-        appearance.setBounds(175, 340, 200, 30);
-
-        buttonCreateNPC.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
-                Character NPC = new Character();
-                nameOfNPC.setText(NPC.getName().getFirstName());
-                raceGenderAge.setText(NPC.getGender() + " " + NPC.getAge() + " " + NPC.getRace().getRaceName());
-                occupationAlignment.setText(NPC.getAlignment() + " " + NPC.getOccupation());
-                appearance.setText(NPC.getAppearance());
-            }
+        buttonCreateNPC.addActionListener(e -> {
+            Character NPC = new Character();
+            nameOfNPC.setText(NPC.getName());
+            centerText(nameOfNPC);
+            raceGenderAge.setText(NPC.getGender() + " " + NPC.getAge() + " " + NPC.getRace().getRaceName());
+            centerText(raceGenderAge);
+            occupationAlignment.setText(NPC.getAlignment() + " " + NPC.getOccupation());
+            centerText(occupationAlignment);
+            appearance.setText(NPC.getAppearance());
+            centerText(appearance);
         });
+
+        frame.setLayout(null);
+        frame.setVisible(true);
 
         frame.add(title);
         frame.add(buttonCreateNPC);
@@ -80,8 +65,39 @@ public class GUI {
         frame.add(appearance);
         frame.add(occupationAlignmentLabel);
         frame.add(occupationAlignment);
+    }
 
-        frame.setLayout(null);
-        frame.setVisible(true);
+    private void setup(){
+        FlatDarculaLaf.setup();
+    }
+
+    private JFrame makeFrame(){
+        JFrame frame = new JFrame("NPC Creator");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(800,600);
+        frame.setLocationRelativeTo(null);
+        return frame;
+    }
+
+    private JLabel makeLabel(String text, Rectangle bounds, boolean title){
+        JLabel label = new JLabel(text, SwingConstants.CENTER);
+        label.setBounds(bounds);
+        label.setHorizontalAlignment(SwingConstants.RIGHT);
+        if (title)
+        {
+            label.setFont(new Font(label.getFont().getName(), Font.BOLD, 30));
+        }
+        return label;
+    }
+
+    private JTextField makeTextField(Rectangle bounds, boolean editable){
+        JTextField textField = new JTextField();
+        textField.setEditable(editable);
+        textField.setBounds(bounds);
+        return textField;
+    }
+
+    private void centerText(JTextField textField){
+        textField.setHorizontalAlignment(SwingConstants.CENTER);
     }
 }

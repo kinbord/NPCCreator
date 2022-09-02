@@ -18,14 +18,14 @@ public class Main {
 
         for (int i = 0 ; i <= 10000 ; i++) {
             Character test = new Character();
-            if (test.getName().getFirstName().length() == 3) trois = trois + 1;
-            if (test.getName().getFirstName().length() == 4) quatre = quatre + 1;
-            if (test.getName().getFirstName().length() == 5) cinq = cinq +1;
-            if (test.getName().getFirstName().length() == 6) six = six + 1;
-            if (test.getName().getFirstName().length() == 7) sept = sept + 1;
-            if (test.getName().getFirstName().length() == 8) huit = huit + 1;
-            if (test.getName().getFirstName().length() == 9) neuf = neuf + 1;
-            if (test.getName().getFirstName().length() == 10) dix = dix + 1;
+            if (test.getName().length() == 3) trois = trois + 1;
+            if (test.getName().length() == 4) quatre = quatre + 1;
+            if (test.getName().length() == 5) cinq = cinq +1;
+            if (test.getName().length() == 6) six = six + 1;
+            if (test.getName().length() == 7) sept = sept + 1;
+            if (test.getName().length() == 8) huit = huit + 1;
+            if (test.getName().length() == 9) neuf = neuf + 1;
+            if (test.getName().length() == 10) dix = dix + 1;
         }
         System.out.println("Names of three characters: " + trois + " ; " + trois/100 + "% of the pop.");
         System.out.println("Names of four characters: " + quatre + " ; " + quatre/100 + "% of the pop.");

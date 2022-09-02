@@ -15,7 +15,7 @@ package com.company;
  */
 public class Character {
 
-    private Name name;
+    private String name;
     private Race race;
     private String age;
     private String gender;
@@ -31,7 +31,7 @@ public class Character {
      */
     public Character () {
         this.race = collections.getRace();
-        this.name = new Name(this.race.getNameWeight());
+        this.name = new Name(this.race.getNameWeight(), this.race.getNameCount()).getName();
         this.gender = collections.getGender();
         this.age = collections.getAge();
         this.occupation = collections.getOccupation();
@@ -44,7 +44,7 @@ public class Character {
      *
      * @return name, which itself contains first, middle and last name
      */
-    public Name getName() {
+    public String getName() {
         return name;
     }
 

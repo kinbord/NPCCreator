@@ -16,9 +16,9 @@ import java.util.Random;
  */
 public class Name {
 
-    private String firstName;
-    private String middleName;
-    private String lastName;
+    private String firstName = "";
+    private String middleName = "";
+    private String lastName = "";
     private WeightedCollection nameWeight;
 
     private static Random rand = new Random();
@@ -31,11 +31,22 @@ public class Name {
      *
      * @param nameWeight: the weighted collection corresponding to the race of the NPC and helping with the name's length
      */
-    public Name (WeightedCollection nameWeight) {
+    public Name (WeightedCollection nameWeight, int nameCount) {
         this.nameWeight = nameWeight;
-        firstName = generateName();
-        //middleName = generateName();
-        //lastName = generateName();
+        switch (nameCount) {
+            case 1:
+                firstName = generateName();
+                break;
+            case 2:
+                firstName = generateName();
+                lastName = generateName();
+                break;
+            case 3:
+                firstName = generateName();
+                middleName = generateName();
+                lastName = generateName();
+                break;
+        }
     }
 
     /**
@@ -67,6 +78,7 @@ public class Name {
                 }
             }
         }
+        newName = newName + " ";
         return newName;
     }
 
@@ -107,5 +119,9 @@ public class Name {
      */
     public String getLastName() {
         return lastName;
+    }
+
+    public String getName() {
+        return firstName + middleName + lastName;
     }
 }

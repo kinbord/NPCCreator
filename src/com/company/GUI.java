@@ -1,11 +1,18 @@
 package com.company;
 
 import com.formdev.flatlaf.FlatDarculaLaf;
+import org.apache.pdfbox.cos.COSName;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDDocumentCatalog;
+import org.apache.pdfbox.pdmodel.PDResources;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
+import org.apache.pdfbox.pdmodel.interactive.form.PDField;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * GUI class
@@ -41,7 +48,7 @@ public class GUI {
         frame.getRootPane().setDefaultButton(buttonCreateNPC);
 
         buttonCreateNPC.addActionListener(e -> {
-            Character NPC = new Character();
+            NPC NPC = new NPC();
             nameOfNPC.setText(NPC.getName().getFullName());
             centerText(nameOfNPC);
             raceGenderAge.setText(NPC.getGender() + " " + NPC.getAge() + " " + NPC.getRace().getRaceName());
@@ -50,6 +57,19 @@ public class GUI {
             centerText(occupationAlignment);
             appearance.setText(NPC.getAppearance());
             centerText(appearance);
+        });
+
+        JButton buttonOpenPDF = new JButton("Open Character Sheet");
+        buttonOpenPDF.putClientProperty("JButton.buttonType", "roundRect");
+        buttonOpenPDF.setBounds(300, 420, 200, 60);
+
+
+        buttonOpenPDF.addActionListener(e -> {
+            try {
+                PDFHandling pdfhandling = new PDFHandling();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
         });
 
         frame.setLayout(null);
@@ -65,6 +85,7 @@ public class GUI {
         frame.add(appearance);
         frame.add(occupationAlignmentLabel);
         frame.add(occupationAlignment);
+        frame.add(buttonOpenPDF);
     }
 
     private void setup(){

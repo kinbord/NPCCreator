@@ -15,7 +15,7 @@ public class Tests {
     private static void nameLengthTest() {
         double[] troisADix = {0, 0, 0, 0, 0, 0, 0, 0};
         for (int i = 0 ; i <= 10000 ; i++) {
-            Character testCharacter = new Character();
+            NPC testCharacter = new NPC();
             for (int j = 3 ; j <= 10 ; j++) {
                 if (testCharacter.getName().getFirstName().length() == j) troisADix[j-3]++;
             }

@@ -13,7 +13,7 @@ package com.company;
  *
  * Collections collections: A set of collections used to randomly get the variables above
  */
-public class Character {
+public class NPC {
 
     private Name name;
     private Race race;
@@ -29,7 +29,7 @@ public class Character {
      * Constructor of the class
      * Generates a random race, name, gender, age and occupation
      */
-    public Character () {
+    public NPC () {
         this.race = collections.getRace();
         this.name = new Name(this.race.getNameWeight(), this.race.getNameCount());
         this.gender = collections.getGender();

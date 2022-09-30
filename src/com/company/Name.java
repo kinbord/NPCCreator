@@ -121,7 +121,7 @@ public class Name {
         return lastName;
     }
 
-    public String getName() {
+    public String getFullName() {
         return firstName + middleName + lastName;
     }
 }

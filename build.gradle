@@ -1,6 +1,7 @@
-plugins {
-    id 'java'
-}
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'com.company.Main'
 
 group 'FrenchInNorway'
 version '1.0'
@@ -18,6 +19,7 @@ sourceSets {
 dependencies {
     implementation 'com.formdev:flatlaf:2.0-rc1'
     implementation 'com.formdev:flatlaf-intellij-themes:2.0-rc1'
+    implementation 'org.apache.pdfbox:pdfbox:2.0.26'
 }
 
 jar {

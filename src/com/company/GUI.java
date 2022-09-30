@@ -42,7 +42,7 @@ public class GUI {
 
         buttonCreateNPC.addActionListener(e -> {
             Character NPC = new Character();
-            nameOfNPC.setText(NPC.getName());
+            nameOfNPC.setText(NPC.getName().getFullName());
             centerText(nameOfNPC);
             raceGenderAge.setText(NPC.getGender() + " " + NPC.getAge() + " " + NPC.getRace().getRaceName());
             centerText(raceGenderAge);

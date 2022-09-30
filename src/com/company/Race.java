@@ -16,6 +16,7 @@ public class Race {
     private String raceName;
     private WeightedCollection nameWeight;
     private int nameCount;
+
     /**
      * Constructor for the class
      * @param raceName: The name of the race

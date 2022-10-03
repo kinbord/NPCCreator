@@ -1,34 +1,25 @@
 package com.company;
 
 import com.formdev.flatlaf.FlatDarculaLaf;
-import org.apache.pdfbox.cos.COSName;
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.PDDocumentCatalog;
-import org.apache.pdfbox.pdmodel.PDResources;
-import org.apache.pdfbox.pdmodel.font.PDType1Font;
-import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
-import org.apache.pdfbox.pdmodel.interactive.form.PDField;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
 
 /**
  * GUI class
  */
-public class GUI {
+public class HomeGUI {
 
     /**
      * Creator of the class
      */
-    public GUI() {
+    public HomeGUI() {
 
         setup();
 
         JFrame frame = makeFrame();
 
-        JLabel title = makeLabel("NPC Creator", new Rectangle(300, 40, 200, 60), true);
+        JLabel title = makeLabel("Character Creator", new Rectangle(300, 40, 200, 60), true);
 
         JTextField nameOfNPC = makeTextField(new Rectangle(325, 220, 300, 30), false);
         JLabel nameLabel = makeLabel("Name:", new Rectangle(nameOfNPC.getX()-300, nameOfNPC.getY(), 300, 30), false);
@@ -44,7 +35,7 @@ public class GUI {
 
         JButton buttonCreateNPC = new JButton("Create NPC");
         buttonCreateNPC.putClientProperty("JButton.buttonType", "roundRect");
-        buttonCreateNPC.setBounds(300, 120, 200, 60);
+        buttonCreateNPC.setBounds(200, 120, 200, 60);
         frame.getRootPane().setDefaultButton(buttonCreateNPC);
 
         buttonCreateNPC.addActionListener(e -> {
@@ -59,17 +50,14 @@ public class GUI {
             centerText(appearance);
         });
 
-        JButton buttonOpenPDF = new JButton("Open Character Sheet");
-        buttonOpenPDF.putClientProperty("JButton.buttonType", "roundRect");
-        buttonOpenPDF.setBounds(300, 420, 200, 60);
+        JButton buttonCreatePC = new JButton("Create PC");
+        buttonCreatePC.putClientProperty("JButton.buttonType", "roundRect");
+        buttonCreatePC.setBounds(400, 120, 200, 60);
 
 
-        buttonOpenPDF.addActionListener(e -> {
-            try {
-                PDFHandling pdfhandling = new PDFHandling();
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
+        buttonCreatePC.addActionListener(e -> {
+            PCGUI PCGUI = new PCGUI();
+            frame.setVisible(false);
         });
 
         frame.setLayout(null);
@@ -85,7 +73,7 @@ public class GUI {
         frame.add(appearance);
         frame.add(occupationAlignmentLabel);
         frame.add(occupationAlignment);
-        frame.add(buttonOpenPDF);
+        frame.add(buttonCreatePC);
     }
 
     private void setup(){
